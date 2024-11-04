@@ -1,0 +1,59 @@
+//algumas funções podem estar definidas na pasta user.class.php
+
+
+// definindo um let com o valor do id podemos passar para a url e encaminhar para proxima página 
+
+
+<script type="text/javascript">
+    function cadastrar(){
+
+
+    let idlicenciado = $('#idLicenciado').val();
+
+    let url = "https://www.portalsmartstorebrasil.com.br/teste/criar-usuario?idLicenciado=" + idLicenciado;
+
+//chama o redirecionar
+
+}</script>
+
+
+
+
+//Na página criar-usuario.php
+//eu criei um if puxando o banco de dados do licenciado
+
+<?php
+if(issets($_GET['idLicenciado'])){
+    $idLicenciado = $_GET['idLicenciado']; // aqui eu dei um get em uma var
+
+
+    $dadosLicenciado = DB::queryFirstRow("SELECT*FROM licenciados WHERE id=%i, $idLicenciado"); // aqui eu criei uma var e anexei a coluna licenciados usando DB
+
+
+    //com essa condição eu puxei o var que esta anexado o banco de dados
+
+    if($dadosLicenciados){
+        $tipo = htmlspecialchars($dadosLicenciados['tipo']);
+        $email =htmlspecialchars($dadosLicenciados)
+
+    }
+
+
+}
+
+?>
+
+
+//Na página editar licenciado
+// eu criei uma var em PHP 
+
+<?php
+        $jaExiste = DB::queryFirstRow("SELECT * from loginusuario WHERE usuario LIKE %s", $dadosLicenciado['email_1']); //peguei o email do usuario 
+        $displayBtnCadastrar = ''; //defini um btn como vazio
+        
+        if($jaExiste){
+            $displayBtnCadastrar = 'd-none'; // o if verifica se existir usuario o btn não aparece na tela 
+                                    // d-none função do bootstrap para deixar btn transparente
+
+        }
+?>
